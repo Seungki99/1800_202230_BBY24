@@ -6,7 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-	
+*Hi my name is Yuvraaj. I am excited for this project as I want to solve a problem with the skills I learn throughout my time in CST.
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
