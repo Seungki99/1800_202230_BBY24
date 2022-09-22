@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Leo. I am excited about this project because I haven't learned about coding before.
 	
 ## Technologies
 Technologies used for this project:
