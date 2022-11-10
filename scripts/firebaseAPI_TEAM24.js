@@ -2,13 +2,13 @@
 //  Your web app's Firebase configuration
 //----------------------------------------
 const firebaseConfig = {
-  apiKey: "AIzaSyDgBOu02Wbw1E04_nf9KuJrqMIWr0se6WI",
-  authDomain: "comp1800-202230-bby24.firebaseapp.com",
-  projectId: "comp1800-202230-bby24",
-  storageBucket: "comp1800-202230-bby24.appspot.com",
-  messagingSenderId: "297337641134",
-  appId: "1:297337641134:web:017036b19ce2ba9f8a353f",
-  measurementId: "G-MEXJYK6S5Q"
+  apiKey: "AIzaSyD_Zmbil8zYAHlyBSYpfxb3k0oPR1EVKkU",
+  authDomain: "myspot-fe819.firebaseapp.com",
+  projectId: "myspot-fe819",
+  storageBucket: "myspot-fe819.appspot.com",
+  messagingSenderId: "1050032436648",
+  appId: "1:1050032436648:web:142180e95555c43725599d"
+
 };
 //--------------------------------------------
 // initialize the Firebase app
