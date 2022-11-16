@@ -21,11 +21,11 @@
 
   <!-- Link to styles of your own -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
 </head>
@@ -57,60 +57,78 @@
   <h1>Become A Host!</h1>
   <div class="container">
     <div class="container">
-        <h1>Create your spot </h1>
-        <div class="container">
+      <h1>Create your spot </h1>
+      <div class="container">
+        <br>
+
+        <br>
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Description</label>
+            <input type="text" class="form-control" id="description" placeholder="description">
+            <label for="exampleFormControlInput1">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="address">
+            <label for="exampleFormControlSelect1">Do you want your host to be available right away?</label>
+            <select class="form-control" id="available">
+              <option>true</option>
+              <option>false</option>
+            </select>
+
+            <label for="exampleFormControlSelect1">Where is the parking located?</label>
+            <select class="form-control" id="geolocation">
+              <option>Burnaby</option>
+              <option>SFU</option>
+              <option>UBC</option>
+              <option>BCIT</option>
+              <option>Surrey</option>
+            </select>
+            <br>
+            <label>Please upload a picture of your host</label>
+            <div class="container text-center py-3">
+              <img id="mypic-goes-here" src="images/blah.jpg" width=200 height=200 />
+              <input type="file" id="mypic-input" accept="image/*" />
+            </div>
+          </div>
           <br>
-          
-          <br>
-          <form>
-              <div class="form-group">
-                  <label for="exampleFormControlInput1">Description</label>
-                  <input type="text" class="form-control" id="description" placeholder="description">
-                  <label for="exampleFormControlInput1">Address</label>
-                  <input type="text" class="form-control" id="description" placeholder="description">
-                  <label for="exampleFormControlInput1">Available</label>
-                  <input type="text" class="form-control" id="description" placeholder="description">
-              </div>
-              <br>
-                  <div class="d-flex justify-content-end">
-                      <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
-                  </div>
-          </form>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit Host</button>
+          </div>
+        </form>
       </div>
-</div>
+    </div>
     <h1>All Parking spots (change to just yours later)</h1>
     <!-- Here is container for cards  -->
-    
 
 
 
 
 
-  <br>
-  <br>
+
+    <br>
+    <br>
 
 
 
-  <footer class="navbar justify-content-evenly fixed-bottom py-3 bg-warning">
-    <div class="container">
-      <i class="material-icons md-48">
-        <button type="button" class="btn
+    <footer class="navbar justify-content-evenly fixed-bottom py-3 bg-warning">
+      <div class="container">
+        <i class="material-icons md-48">
+          <button type="button" class="btn
              btn-lg px-4 gap-3"><a href="find.html">Find</a>
-        </button></i>
-      <i class="material-icons md-48"><button type="button" class="btn
+          </button></i>
+        <i class="material-icons md-48"><button type="button" class="btn
             btn-lg px-4"><a href="account.html">Account</a></button></i></i>
-      <i class="material-icons md-48"> <button type="button" class="btn
+        <i class="material-icons md-48"> <button type="button" class="btn
              btn-lg px-4"><a href="mySpots.html">mySpots</a></button></i>
-    </div>
-  </footer>
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
+      </div>
+    </footer>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
 
-  <!-- Link to scripts of your own -->
-  <!-- <script src="./scripts/script.js"></script> -->
-  <script src="./scripts/firebaseAPI_TEAM24.js"></script>
-  <script src="./scripts/host.js"></script>
+    <!-- Link to scripts of your own -->
+    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/firebaseAPI_TEAM24.js"></script>
+    <script src="./scripts/host.js"></script>
 </body>
 
 </html>
