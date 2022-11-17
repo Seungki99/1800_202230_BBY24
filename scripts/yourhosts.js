@@ -20,7 +20,9 @@ function populateCardsDynamically() {
                 var spotDescription = doc.data().description; //gets the name field
                 var spotID = doc.data().code; //gets the unique CODE field
                 var spotGeolocation = doc.data().geolocation; //gets the length field
+                var spotAvailable = doc.data().available;
                 let testspotCard = parkingspotCardTemplate.content.cloneNode(true);
+                testspotCard.querySelector('.card-available').innerHTML = spotAvailable; 
                 testspotCard.querySelector('.card-title').innerHTML = spotDescription;     //equiv getElementByClassName
                 testspotCard.querySelector('.card-length').innerHTML = spotGeolocation;  //equiv getElementByClassName
                 testspotCard.querySelector('a').onclick = () => setHikeData(spotID);//equiv getElementByTagName
