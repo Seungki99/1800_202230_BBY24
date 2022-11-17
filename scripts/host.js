@@ -5,8 +5,17 @@ function writeReview() {
     let Geolocation = document.getElementById("geolocation").value;
     let Available = document.getElementById("available").value;
     let Vehicle = "none";
-    db.collection("parkingspots").add({
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          var currentUser = db.collection("users").doc(user.uid);
+          var userID = user.uid;
+          //get the document for current user.
+          currentUser.get().then((userDoc) => {
+            var userEmail = userDoc.data().email;
+            db.collection("parkingspots")
+              .add({
         available: Available,
+        userID: userID,
         description: Address,
         geolocation: Geolocation,
         image: Description,
@@ -14,5 +23,11 @@ function writeReview() {
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
     }).then(() => {
         window.location.href = "thanks.html"; //new line added
-    })
+    });
+});
+        } else {
+            //no user is loggedin.
+        }
+    });
 }
+        
