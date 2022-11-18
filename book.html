@@ -63,8 +63,8 @@
         <br>
         <form>
             <div class="container">
-                <label for="exampleFormControlInput1">Add a license plate</label>
-                <input type="text" class="form-control form-control-lg" id="licenseplate" placeholder="license plate">
+                <label for="exampleFormControlInput1">What vehicle will you be booking?</label>
+                <input type="text" class="form-control form-control-lg" id="licenseplate" placeholder="Please enter your license plate.">
             </div>
             <br>
             <div class="container">
@@ -72,6 +72,7 @@
                 <input class="form-control form-control-lg" id="starttime" type="datetime-local" placeholder="Your date and time of departure"
                 aria-label=".form-control-sm example">
             </div>
+            <br>
             <div class="container">
                 <label for="exampleFormControlInput1">End time</label>
                 <input class="form-control form-control-lg" id="endtime" type="datetime-local" placeholder="Your date and time of departure"
@@ -91,15 +92,15 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content rounded-4 shadow">
             <div class="modal-header border-bottom-0">
-              <h1 class="modal-title fs-5">Modal title</h1>
+              <h1 class="modal-title fs-5">Please Confirm:</h1>
               <button type="button" class="close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body py-0">
               <p>Are you sure you want to book this spot?</p>
             </div>
             <div class="modal-footer flex-column border-top-0">
-              <button type="button" class="btn btn-lg btn-primary w-100 mx-0 mb-2" onclick="reservation()">Yes, Book!<span href="find.html"></span></button>
-              <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">No.</button>
+              <button type="button" class="btn btn-lg btn-primary w-100 mx-0 mb-2" onclick="reservation()">Yes, Book</button>
+              <button type="button" class="btn btn-lg btn-light w-100 mx-0" class="close">No.</button>
             </div>
           </div>
         </div>
