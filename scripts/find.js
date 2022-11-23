@@ -77,9 +77,9 @@ function writeparkingspots() {
 function populateCardsDynamically() {
     let parkingspotCardTemplate = document.getElementById("parkingspotCardTemplate");
     let parkingspotCardGroup = document.getElementById("parkingspotCardGroup");
-    
+    let currentDate = Date();
     db.collection("parkingspots")
-        .where("available", "==", "true")
+        .where(("available", "==", true) && "date", "<=", currentDate)
         .get()
         .then(allSpots => {
             allSpots.forEach(doc => {

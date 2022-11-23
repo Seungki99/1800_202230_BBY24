@@ -2,8 +2,16 @@ function writeReview() {
     console.log("inside write review")
     let Description = document.getElementById("description").value;
     let Address = document.getElementById("address").value;
+   
+    
     let Geolocation = document.getElementById("geolocation").value;
     let Available = document.getElementById("available").value;
+
+    if (Available == "Yes!") {
+        Available = true;
+    }
+
+  
     let Vehicle = "none";
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -20,7 +28,9 @@ function writeReview() {
         geolocation: Geolocation,
         image: Description,
         vehicle: Vehicle,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        date: Date(),
+        renterID: "none"
     }).then(() => {
         window.location.href = "thanks.html"; //new line added
     });
