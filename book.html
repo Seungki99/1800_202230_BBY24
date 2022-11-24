@@ -124,4 +124,11 @@
 
 </body>
 
+<script>
+  console.log(window.location.href);
+  const url = new URL(window.location.href);
+  
+  console.log(url.searchParams.get("id"));
+</script>
+
 </html>

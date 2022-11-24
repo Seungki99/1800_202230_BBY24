@@ -1,5 +1,6 @@
 //change funtion name
 function reservation() {
+  console.log("you are in reservation");
     //change ID name with is same with addvehicle that I mentioned
     let Licenseplate = document.getElementById("licenseplate").value;
     let Starttime = document.getElementById("starttime").value;

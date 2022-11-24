@@ -83,14 +83,21 @@ function populateCardsDynamically() {
         .get()
         .then(allSpots => {
             allSpots.forEach(doc => {
+              
+              console.log("doc.data() is", doc.data());
+              let parkid = (doc.id);
                 var spotDescription = doc.data().description; //gets the name field
                 var spotID = doc.data().code; //gets the unique CODE field
-                console.log("spot id is ", spotID);
+                console.log("spotID is ", spotID);
                 var spotGeolocation = doc.data().geolocation; //gets the length field
                 let testspotCard = parkingspotCardTemplate.content.cloneNode(true);
                 console.log('the testspotCard is ', testspotCard);
+                console.log("the doc.id now id of card is", doc.id);
+                
+                
                 testspotCard.querySelector('.card-title').innerHTML = spotDescription;     //equiv getElementByClassName
                 testspotCard.querySelector('.card-length').innerHTML = spotGeolocation;  //equiv getElementByClassName
+                testspotCard.querySelector('a').setAttribute("href", "/book.html"+"?"+"id"+"="+parkid);
                 testspotCard.querySelector('a').onclick = () => setHikeData(spotID);//equiv getElementByTagName
                 testspotCard.querySelector('img').src = `./images/${spotID}.jpg`;   //equiv getElementByTagName
                 parkingspotCardGroup.appendChild(testspotCard);
