@@ -17,20 +17,20 @@ function writeReview() {
         if (user) {
           var currentUser = db.collection("users").doc(user.uid);
           var userID = user.uid;
+          let Endtime = document.getElementById("endtime").value;
           //get the document for current user.
           currentUser.get().then((userDoc) => {
             var userEmail = userDoc.data().email;
             db.collection("parkingspots")
               .add({
         available: Available,
-        userID: userID,
+        renterID: userID,
         description: Address,
         geolocation: Geolocation,
         image: Description,
         vehicle: Vehicle,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        date: Date(),
-        renterID: "none"
+        date: Endtime
     }).then(() => {
         window.location.href = "thanks.html"; //new line added
     });
