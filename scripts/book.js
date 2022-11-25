@@ -1,34 +1,52 @@
-
 //change funtion name
 function reservation() {
+  let endOfReservation = document.getElementById("endtime").value
+  console.log(endOfReservation);
+  let diffDateTest = new Date(endOfReservation);
+  console.log(diffDateTest);
   console.log("you are in reservation");
-    //change ID name with is same with addvehicle that I mentioned
-    let Licenseplate = document.getElementById("licenseplate").value;
-    let Endtime = document.getElementById("endtime").value;
+  //change ID name with is same with addvehicle that I mentioned
+  let Licenseplate = document.getElementById("licenseplate").value;
+  let Endtime = document.getElementById("endtime").value;
+  console.log("this is licenseplate", Licenseplate);
+  console.log("this is endtime", Endtime);
+  let url_str = window.location.href;
+
+  let url = new URL(url_str);
+  let search_params = url.searchParams;
+
+  // get value of "id" parameter
+  // "100"
+    firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      
+      var userID = user.uid;
+      console.log("this is user ID.", userID);
+      let currentParkingSpotID = (search_params.get("id"));
+      console.log("currentParkingSpotID", currentParkingSpotID);
+      const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
+      firebase.firestore().collection("parkingspots").doc(currentParkingSpotID).update({renterID: userID});
+      firebase.firestore().collection("parkingspots").doc(currentParkingSpotID).update({date: diffDateTest});
+  
+    }})
+
     
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            var currentSpot = db.collection("users").doc(user.uid)
-            var userID = user.uid;
-            //get the document for current user.
-            currentSpot.get()
-                .then(userDoc => {
-                    db.collection("parkingspots").add({
-                        //removed code beacuse I didnt use the upper function from demo 10 review.js 
-                        renterID: userID,
-                        //changed which is matched to the funtion that I let it in the upper funtion
-                        licenseplate: Licenseplate,
-                        date: Endtime,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(()=>{
-                        //change location into account
-                        window.location.href = "confirmation.html"; //new line added
-                    })
-                })
-        } else {
-            // No user is signed in.
-        }
-    });
+
+
+
+
+
+//   firebase.auth().onAuthStateChanged((user) => {
+//     if (user) {
+//       // var currentUser = db.collection("users").doc(user.uid);
+//       var userID = user.uid;
+//       console.log("this is user ID.", userID);
+      
+// const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
+
+// // Set the 'capital' field of the city
+// parkingref.update({renterID: userID});
+// }});
 }
 
 // Get the modal
@@ -40,19 +58,19 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
+// When the user clicks the button, open the modal
+btn.onclick = function () {
   modal.style.display = "block";
-}
+};
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
