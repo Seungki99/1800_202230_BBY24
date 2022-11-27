@@ -31,19 +31,20 @@
   }
   
   /* Style the buttons */
-  .btn {
+ .btnfilter {
     border: none;
     outline: none;
     padding: 12px 16px;
-    background-color: #f1f1f1;
+    background-color: mediumspringgreen;
     cursor: pointer;
   }
   
-  .btn:hover {
+  .btnfilter:hover {
     background-color: #ddd;
   }
   
-  .btn.active {
+  .btnfilter.active {
     background-color: #666;
     color: white;
   }
+  

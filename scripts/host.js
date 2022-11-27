@@ -25,8 +25,8 @@ function writeReview() {
               .add({
         available: Available,
         userID: userID,
-        description: Address,
-        geolocation: Geolocation,
+        description: Description,
+        geolocation: Address,
         image: Description,
         vehicle: Vehicle,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
