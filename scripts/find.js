@@ -23,7 +23,7 @@ function populateCardsDynamically() {
                 testspotCard.querySelector('.card-length').innerHTML = spotGeolocation;  //equiv getElementByClassName
                 testspotCard.querySelector('a').setAttribute("href", "/book.html"+"?"+"id"+"="+parkid);
                 testspotCard.querySelector('a').onclick = () => setHikeData(spotID);//equiv getElementByTagName
-                testspotCard.querySelector('img').src = `./images/${spotID}.jpg`;   //equiv getElementByTagName
+                // testspotCard.querySelector('img').src = `./images/${spotID}.jpg`;   //equiv getElementByTagName
                 parkingspotCardGroup.appendChild(testspotCard);
             })
 
@@ -35,3 +35,4 @@ function setSpotData(id){
   console.long('the id spot id', id)
     localStorage.setItem ('spotID', id);
 }
+
