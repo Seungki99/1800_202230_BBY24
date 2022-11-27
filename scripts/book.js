@@ -1,6 +1,6 @@
 //change funtion name
 function reservation() {
-  let endOfReservation = document.getElementById("endtime").value
+  let endOfReservation = document.getElementById("endtime").value;
   console.log(endOfReservation);
   let diffDateTest = new Date(endOfReservation);
   console.log(diffDateTest);
@@ -17,37 +17,41 @@ function reservation() {
 
   // get value of "id" parameter
   // "100"
-    firebase.auth().onAuthStateChanged((user) => {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      
       var userID = user.uid;
       console.log("this is user ID.", userID);
-      let currentParkingSpotID = (search_params.get("id"));
+      let currentParkingSpotID = search_params.get("id");
       console.log("currentParkingSpotID", currentParkingSpotID);
-      const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
-      firebase.firestore().collection("parkingspots").doc(currentParkingSpotID).update({renterID: userID});
-      firebase.firestore().collection("parkingspots").doc(currentParkingSpotID).update({date: diffDateTest});
-  
-    }})
-
-    
-
-
-
-
-
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       // var currentUser = db.collection("users").doc(user.uid);
-//       var userID = user.uid;
-//       console.log("this is user ID.", userID);
-      
-// const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
-
-// // Set the 'capital' field of the city
-// parkingref.update({renterID: userID});
-// }});
+      const parkingref = db
+        .collection("parkingspots")
+        .doc("currentParkingSpotID");
+      firebase
+        .firestore()
+        .collection("parkingspots")
+        .doc(currentParkingSpotID)
+        .update({ renterID: userID });
+      firebase
+        .firestore()
+        .collection("parkingspots")
+        .doc(currentParkingSpotID)
+        .update({ date: diffDateTest });
+    }
+  })
 }
+
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //       // var currentUser = db.collection("users").doc(user.uid);
+  //       var userID = user.uid;
+  //       console.log("this is user ID.", userID);
+
+  // const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
+
+  // // Set the 'capital' field of the city
+  // parkingref.update({renterID: userID});
+  // }});
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
