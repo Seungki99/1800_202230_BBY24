@@ -38,6 +38,7 @@ function reservation() {
         .update({ date: diffDateTest });
     }
   })
+    window.location.href = "confirmation.html"; //new line added
 }
 
   //   firebase.auth().onAuthStateChanged((user) => {
