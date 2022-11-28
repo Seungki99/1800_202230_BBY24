@@ -17,6 +17,7 @@ function reservation() {
 
   // get value of "id" parameter
   // "100"
+  console.log("right before user verification");
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var userID = user.uid;
@@ -38,7 +39,7 @@ function reservation() {
         .update({ date: diffDateTest });
     }
   })
-    window.location.href = "confirmation.html"; //new line added
+    // window.location.href = "confirmation.html"; //new line added
 }
 
   //   firebase.auth().onAuthStateChanged((user) => {
