@@ -21,11 +21,11 @@ function populateCardsDynamically() {
                         var spotGeolocation = doc.data().geolocation; //gets the length field
                         var spotAvailable = doc.data().available;
                         let testspotCard = parkingspotCardTemplate.content.cloneNode(true);
-                        testspotCard.querySelector('.card-available').innerHTML = spotAvailable;
+                        testspotCard.querySelector('.card-available').innerHTML = spotGeolocation;
                         testspotCard.querySelector('.card-title').innerHTML = spotDescription; //equiv getElementByClassName
-                        testspotCard.querySelector('.card-length').innerHTML = spotGeolocation; //equiv getElementByClassName
+                        testspotCard.querySelector('.card-length').innerHTML = spotAvailable; //equiv getElementByClassName
                         testspotCard.querySelector('a').onclick = () => setHikeData(spotID); //equiv getElementByTagName
-                        testspotCard.querySelector('img').src = `./images/${spotID}.jpg`; //equiv getElementByTagName
+                        // testspotCard.querySelector('img').src = `./images/${spotID}.jpg`; //equiv getElementByTagName
                         parkingspotCardGroup.appendChild(testspotCard);
                     })
 
