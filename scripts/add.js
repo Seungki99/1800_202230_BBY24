@@ -2,17 +2,14 @@
 function reservation() {
   let endOfReservation = document.getElementById("endtime").value;
   console.log(endOfReservation);
+  let diffDateTest = Date.now(endOfReservation);
   let date_Num = new Date(endOfReservation).getTime();
-  console.log(date_Num);
-  
   console.log("you are in reservation");
   //change ID name with is same with addvehicle that I mentioned
-  let Licenseplate = document.getElementById("licenseplate").value;
+  // let Licenseplate = document.getElementById("licenseplate").value;
   let Endtime = document.getElementById("endtime").value;
-  console.log("this is licenseplate", Licenseplate);
+  // console.log("this is licenseplate", Licenseplate);
   console.log("this is endtime", Endtime);
-  console.log(typeof Endtime);
-  
   let url_str = window.location.href;
 
   let url = new URL(url_str);
@@ -26,19 +23,13 @@ function reservation() {
       console.log("this is user ID.", userID);
       let currentParkingSpotID = search_params.get("id");
       console.log("currentParkingSpotID", currentParkingSpotID);
-      const parkingref = db
-        .collection("parkingspots")
+      db.collection("parkingspots")
         .doc("currentParkingSpotID");
       firebase
         .firestore()
         .collection("parkingspots")
         .doc(currentParkingSpotID)
-        .update({ renterID: userID });
-      firebase
-        .firestore()
-        .collection("parkingspots")
-        .doc(currentParkingSpotID)
-        .update({ date: date_Num});
+        .update({ date: date_Num });
     }
   })
   window.location.replace("./mySpots.html");
