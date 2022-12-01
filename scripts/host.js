@@ -6,6 +6,7 @@ function writeReview() {
     
     let Geolocation = document.getElementById("geolocation").value;
     let Available = document.getElementById("available").value;
+    let owner_phone = document.getElementById("phone").value;
 
     if (Available == "Yes!") {
         Available = true;
@@ -21,6 +22,7 @@ function writeReview() {
           //get the document for current user.
           currentUser.get().then((userDoc) => {
             var userEmail = userDoc.data().email;
+            timeDateStamp = Date.now();
             db.collection("parkingspots")
               .add({
         available: Available,
@@ -30,7 +32,8 @@ function writeReview() {
         image: Description,
         vehicle: Vehicle,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        date: Date(),
+        date: timeDateStamp,
+        phone: owner_phone,
         renterID: "none"
     }).then(() => {
         window.location.href = "thanks.html"; //new line added
