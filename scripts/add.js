@@ -32,7 +32,9 @@ function reservation() {
         .update({ date: date_Num });
     }
   })
-  window.location.replace("./mySpots.html");
+  setTimeout(() => {
+    window.location.replace("./mySpots.html");
+  }, "1000")
 }
 
   //   firebase.auth().onAuthStateChanged((user) => {

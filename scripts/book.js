@@ -1,4 +1,6 @@
 //change funtion name
+
+
 function reservation() {
   let endOfReservation = document.getElementById("endtime").value;
   console.log(endOfReservation);
@@ -41,7 +43,15 @@ function reservation() {
         .update({ date: date_Num});
     }
   })
-  window.location.replace("./mySpots.html");
+  setTimeout(() => {
+    window.location.replace("./mySpots.html");
+  }, "1000")
+  
+
+ 
+
+
+
 }
 
   //   firebase.auth().onAuthStateChanged((user) => {
