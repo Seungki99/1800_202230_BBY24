@@ -7,8 +7,7 @@ const firebaseConfig = {
   projectId: "myspot-fe819",
   storageBucket: "myspot-fe819.appspot.com",
   messagingSenderId: "1050032436648",
-  appId: "1:1050032436648:web:142180e95555c43725599d"
-
+  appId: "1:1050032436648:web:142180e95555c43725599d",
 };
 //--------------------------------------------
 // initialize the Firebase app

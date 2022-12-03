@@ -23,32 +23,30 @@ function reservation() {
       console.log("this is user ID.", userID);
       let currentParkingSpotID = search_params.get("id");
       console.log("currentParkingSpotID", currentParkingSpotID);
-      db.collection("parkingspots")
-        .doc("currentParkingSpotID");
+      db.collection("parkingspots").doc("currentParkingSpotID");
       firebase
         .firestore()
         .collection("parkingspots")
         .doc(currentParkingSpotID)
         .update({ date: date_Num });
     }
-  })
+  });
   setTimeout(() => {
     window.location.replace("./mySpots.html");
-  }, "1000")
+  }, "1000");
 }
 
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       // var currentUser = db.collection("users").doc(user.uid);
-  //       var userID = user.uid;
-  //       console.log("this is user ID.", userID);
+//   firebase.auth().onAuthStateChanged((user) => {
+//     if (user) {
+//       // var currentUser = db.collection("users").doc(user.uid);
+//       var userID = user.uid;
+//       console.log("this is user ID.", userID);
 
-  // const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
+// const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
 
-  // // Set the 'capital' field of the city
-  // parkingref.update({renterID: userID});
-  // }});
-
+// // Set the 'capital' field of the city
+// parkingref.update({renterID: userID});
+// }});
 
 // Get the modal
 var modal = document.getElementById("myModal");
