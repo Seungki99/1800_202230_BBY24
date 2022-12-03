@@ -16,6 +16,8 @@ function insertName() {
 }
 insertName();
 
+// Reads from firebase card where date is in bounds
+//Then populates information into cards.
 function populateAvailableCards() {
   let parkingspotCardTemplate = document.getElementById(
     "parkingspotCardTemplate"

@@ -1,3 +1,5 @@
+// Creates a new document in parkingspots collection
+// which is a new parking spot
 function submitHost() {
   console.log("inside write review");
   let Description = document.getElementById("description").value;

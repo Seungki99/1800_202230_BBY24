@@ -1,8 +1,9 @@
 let url_str = window.location.href;
-
 let url = new URL(url_str);
 let search_params = url.searchParams;
 
+// If user is signed in update document in parkingspots collection
+// there is no renter and date is outof bounds for find page.
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     let currentParkingSpotID = search_params.get("id");

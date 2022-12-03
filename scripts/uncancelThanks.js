@@ -1,5 +1,5 @@
+// Will parse uid of parkingspots document and make it inbounds for find.html
 let url_str = window.location.href;
-
 let url = new URL(url_str);
 let search_params = url.searchParams;
 firebase.auth().onAuthStateChanged((user) => {

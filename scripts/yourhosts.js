@@ -1,10 +1,9 @@
 let url_str = window.location.href;
-
 let url = new URL(url_str);
 let search_params = url.searchParams;
 let value = search_params.get("id");
 
-
+// Reads from firebase and populates card with information, where userID matches current user.
 function populateCardsDynamically() {
   let parkingspotCardTemplate = document.getElementById(
     "parkingspotCardTemplate"

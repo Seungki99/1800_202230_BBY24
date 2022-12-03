@@ -1,3 +1,5 @@
+// Will populate cards from information read from the parkingspots collection,
+// in firebase, where renterId matches current user uid
 function populateRentedCards() {
   let parkingspotCardTemplate = document.getElementById(
     "parkingspotCardTemplate"

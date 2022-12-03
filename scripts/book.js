@@ -1,13 +1,13 @@
+// Parses PK of a parking document then updates the fields of renterID
 function reservation() {
   let endOfReservation = document.getElementById("endtime").value;
-
   let date_Num = new Date(endOfReservation).getTime();
-
   let url_str = window.location.href;
-
   let url = new URL(url_str);
   let search_params = url.searchParams;
 
+  // If user is signed in update the parkingspots document
+  // fields so the current user will be the renter for a set time.
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var userID = user.uid;

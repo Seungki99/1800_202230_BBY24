@@ -5,6 +5,8 @@ function addvehicle() {
   let Vehicletype = document.getElementById("vehicletype").value;
   let Description = document.getElementById("description").value;
 
+  //Checks to see if user is signed in and then creates creates a new document
+  // in the vehicle collection
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var currentUser = db.collection("users").doc(user.uid);
