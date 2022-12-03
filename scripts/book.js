@@ -1,5 +1,3 @@
-//change funtion name
-
 function reservation() {
   let endOfReservation = document.getElementById("endtime").value;
   console.log(endOfReservation);
@@ -7,7 +5,7 @@ function reservation() {
   console.log(date_Num);
 
   console.log("you are in reservation");
-  //change ID name with is same with addvehicle that I mentioned
+
   let Licenseplate = document.getElementById("licenseplate").value;
   let Endtime = document.getElementById("endtime").value;
   console.log("this is licenseplate", Licenseplate);
@@ -19,8 +17,6 @@ function reservation() {
   let url = new URL(url_str);
   let search_params = url.searchParams;
 
-  // get value of "id" parameter
-  // "100"
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var userID = user.uid;
@@ -34,12 +30,16 @@ function reservation() {
         .firestore()
         .collection("parkingspots")
         .doc(currentParkingSpotID)
-        .update({ renterID: userID });
+        .update({
+          renterID: userID
+        });
       firebase
         .firestore()
         .collection("parkingspots")
         .doc(currentParkingSpotID)
-        .update({ date: date_Num });
+        .update({
+          date: date_Num
+        });
     }
   });
   setTimeout(() => {
@@ -47,17 +47,7 @@ function reservation() {
   }, "1000");
 }
 
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       // var currentUser = db.collection("users").doc(user.uid);
-//       var userID = user.uid;
-//       console.log("this is user ID.", userID);
 
-// const parkingref = db.collection('parkingspots').doc('currentParkingSpotID');
-
-// // Set the 'capital' field of the city
-// parkingref.update({renterID: userID});
-// }});
 
 // Get the modal
 var modal = document.getElementById("myModal");

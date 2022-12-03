@@ -48,7 +48,8 @@
         <form>
           <div class="form-group">
             <label for="exampleFormControlInput1">Description</label>
-            <input type="text" class="form-control" id="description" placeholder="Provide a short description about your spot!">
+            <input type="text" class="form-control" id="description"
+              placeholder="Provide a short description about your spot!">
             <label for="exampleFormControlInput1">Address</label>
             <input type="text" class="form-control" id="address" placeholder="Where is your spot located?">
             <label for="exampleFormControlSelect1">Do you want your host to be available right away?</label>
@@ -68,16 +69,11 @@
             </select>
             <label for="exampleFormControlInput1">Phone Number</label>
             <input type="text" class="form-control" id="phone" placeholder="Your phone number for renters to reach you">
-            <br>
-            <label>Please upload a picture of your spot:</label>
-            <div class="container text-center py-3">
-              <img id="mypic-goes-here" src="images/blah.jpg" width=200 height=200 />
-              <input type="file" id="mypic-input" accept="image/*" />
-            </div>
+
           </div>
           <br>
           <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit Host</button>
+            <button type="button" class="btn btn-lg btn-primary pull-right" onclick="submitHost()">Submit Host</button>
           </div>
         </form>
       </div>

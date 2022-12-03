@@ -9,14 +9,14 @@ function insertName() {
         var user_Name = userDoc.data().name;
         console.log(user_Name);
         $("#name-goes-here").text(user_Name); //jquery
-        // document.getElementByID("name-goes-here").innetText=user_Name;
+
       });
     }
   });
 }
 insertName();
 
-function populateCardsDynamically() {
+function populateAvailableCards() {
   let parkingspotCardTemplate = document.getElementById(
     "parkingspotCardTemplate"
   );
@@ -31,26 +31,24 @@ function populateCardsDynamically() {
         console.log("date");
         console.log("doc.data() is", doc.data());
         let parkid = doc.id;
-        var spotDescription = doc.data().description; //gets the name field
-        var spotID = doc.data().code; //gets the unique CODE field
+        var spotDescription = doc.data().description;
+        var spotID = doc.data().code;
         console.log("spotID is ", spotID);
-        var spotGeolocation = doc.data().geolocation; //gets the length field
+        var spotGeolocation = doc.data().geolocation;
         let testspotCard = parkingspotCardTemplate.content.cloneNode(true);
         console.log("the testspotCard is ", testspotCard);
         console.log("the doc.id now id of card is", doc.id);
 
-        testspotCard.querySelector(".card-title").innerHTML = spotGeolocation; //equiv getElementByClassName
-        testspotCard.querySelector(".card-length").innerHTML = spotDescription; //equiv getElementByClassName
+        testspotCard.querySelector(".card-address").innerHTML = spotGeolocation;
+        testspotCard.querySelector(".card-description").innerHTML = spotDescription;
         testspotCard
           .querySelector("a")
           .setAttribute("href", "/book.html" + "?" + "id" + "=" + parkid);
-        // testspotCard.querySelector('a').onclick = () => setHikeData(spotID);//equiv getElementByTagName
-        // testspotCard.querySelector('img').src = `./images/${spotID}.jpg`;   //equiv getElementByTagName
         parkingspotCardGroup.appendChild(testspotCard);
       });
     });
 }
-populateCardsDynamically();
+populateAvailableCards();
 
 function setSpotData(id) {
   console.long("the id spot id", id);

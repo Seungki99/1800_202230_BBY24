@@ -4,16 +4,7 @@ let url = new URL(url_str);
 let search_params = url.searchParams;
 console.log("the id in url is", search_params.get("id"));
 let value = search_params.get("id");
-if (value != null) {
-  function getAvailable(value) {
-    return db.collection("parkingspots").doc(value).get("available");
-  }
-  function printAvailable(myCallback) {
-    console.log("this is the callback", myCallback);
-  }
 
-  printAvailable(getAvailable);
-}
 
 function populateCardsDynamically() {
   let parkingspotCardTemplate = document.getElementById(
@@ -29,17 +20,16 @@ function populateCardsDynamically() {
         .then((allSpots) => {
           allSpots.forEach((doc) => {
             var parkid = doc.id;
-            var spotDescription = doc.data().description; //gets the name field
-            var spotID = doc.data().code; //gets the unique CODE field
-            var spotGeolocation = doc.data().geolocation; //gets the length field
+            var spotDescription = doc.data().description;
+            var spotGeolocation = doc.data().geolocation;
             var spotAvailable = doc.data().available;
             let testspotCard = parkingspotCardTemplate.content.cloneNode(true);
-            testspotCard.querySelector(".card-available").innerHTML =
+            testspotCard.querySelector(".location").innerHTML =
               spotGeolocation;
-            testspotCard.querySelector(".card-title").innerHTML =
-              spotDescription; //equiv getElementByClassName
-            testspotCard.querySelector(".card-length").innerHTML =
-              spotAvailable; //equiv getElementByClassName
+            testspotCard.querySelector(".card-description").innerHTML =
+              spotDescription;
+            testspotCard.querySelector(".card-status").innerHTML =
+              spotAvailable;
             testspotCard
               .querySelector("#cancel")
               .setAttribute(
@@ -52,8 +42,7 @@ function populateCardsDynamically() {
                 "href",
                 "/uncancelThanks.html" + "?" + "id" + "=" + parkid
               );
-            // testspotCard.querySelector('a').onclick = () => setHikeData(spotID); //equiv getElementByTagName
-            // testspotCard.querySelector('img').src = `./images/${spotID}.jpg`; //equiv getElementByTagName
+
             parkingspotCardGroup.appendChild(testspotCard);
           });
         });

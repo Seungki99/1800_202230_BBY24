@@ -1,9 +1,7 @@
-function writeReview() {
+function submitHost() {
   console.log("inside write review");
   let Description = document.getElementById("description").value;
   let Address = document.getElementById("address").value;
-
-  let Geolocation = document.getElementById("geolocation").value;
   let Available = document.getElementById("available").value;
   let owner_phone = document.getElementById("phone").value;
 
@@ -19,7 +17,7 @@ function writeReview() {
       console.log("this is userID", userID);
       //get the document for current user.
       currentUser.get().then((userDoc) => {
-        var userEmail = userDoc.data().email;
+
         timeDateStamp = Date.now();
         db.collection("parkingspots")
           .add({
@@ -39,7 +37,7 @@ function writeReview() {
           });
       });
     } else {
-      //no user is loggedin.
+
     }
   });
 }
