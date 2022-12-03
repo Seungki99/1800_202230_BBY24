@@ -2,7 +2,6 @@ let url_str = window.location.href;
 
 let url = new URL(url_str);
 let search_params = url.searchParams;
-console.log("the id in url is", search_params.get("id"));
 let value = search_params.get("id");
 
 

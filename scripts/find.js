@@ -22,7 +22,6 @@ function populateAvailableCards() {
   );
   let parkingspotCardGroup = document.getElementById("parkingspotCardGroup");
   let currentDate = Date.now();
-  console.log("current time stamp is)", currentDate);
   db.collection("parkingspots")
     .where("date", "<", currentDate)
     .get()
@@ -32,13 +31,8 @@ function populateAvailableCards() {
         console.log("doc.data() is", doc.data());
         let parkid = doc.id;
         var spotDescription = doc.data().description;
-        var spotID = doc.data().code;
-        console.log("spotID is ", spotID);
         var spotGeolocation = doc.data().geolocation;
         let testspotCard = parkingspotCardTemplate.content.cloneNode(true);
-        console.log("the testspotCard is ", testspotCard);
-        console.log("the doc.id now id of card is", doc.id);
-
         testspotCard.querySelector(".card-address").innerHTML = spotGeolocation;
         testspotCard.querySelector(".card-description").innerHTML = spotDescription;
         testspotCard
@@ -51,6 +45,5 @@ function populateAvailableCards() {
 populateAvailableCards();
 
 function setSpotData(id) {
-  console.long("the id spot id", id);
   localStorage.setItem("spotID", id);
 }

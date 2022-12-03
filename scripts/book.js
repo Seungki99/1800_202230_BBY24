@@ -1,16 +1,7 @@
 function reservation() {
   let endOfReservation = document.getElementById("endtime").value;
-  console.log(endOfReservation);
+
   let date_Num = new Date(endOfReservation).getTime();
-  console.log(date_Num);
-
-  console.log("you are in reservation");
-
-  let Licenseplate = document.getElementById("licenseplate").value;
-  let Endtime = document.getElementById("endtime").value;
-  console.log("this is licenseplate", Licenseplate);
-  console.log("this is endtime", Endtime);
-  console.log(typeof Endtime);
 
   let url_str = window.location.href;
 
@@ -20,10 +11,9 @@ function reservation() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var userID = user.uid;
-      console.log("this is user ID.", userID);
       let currentParkingSpotID = search_params.get("id");
       console.log("currentParkingSpotID", currentParkingSpotID);
-      const parkingref = db
+      db
         .collection("parkingspots")
         .doc("currentParkingSpotID");
       firebase

@@ -14,8 +14,6 @@ function submitHost() {
     if (user) {
       var currentUser = db.collection("users").doc(user.uid);
       var userID = user.uid;
-      console.log("this is userID", userID);
-      //get the document for current user.
       currentUser.get().then((userDoc) => {
 
         timeDateStamp = Date.now();

@@ -1,12 +1,6 @@
 function reservation() {
   let endOfReservation = document.getElementById("endtime").value;
-  console.log(endOfReservation);
-  let diffDateTest = Date.now(endOfReservation);
   let date_Num = new Date(endOfReservation).getTime();
-  console.log("you are in reservation");
-
-  let Endtime = document.getElementById("endtime").value;
-
 
   let url_str = window.location.href;
 

@@ -10,13 +10,10 @@ function addvehicle() {
       var currentUser = db.collection("users").doc(user.uid);
       var userID = user.uid;
       //get the document for current user.
-      currentUser.get().then((userDoc) => {
-        var userEmail = userDoc.data().email;
+      currentUser.get().then(() => {
         db.collection("vehicle")
           .add({
-            //removed code beacuse I didnt use the upper function from demo 10 review.js
             userID: userID,
-            //changed which is matched to the funtion that I let it in the upper funtion
             licenseplate: Licenseplate,
             vehicletype: Vehicletype,
             description: Description,

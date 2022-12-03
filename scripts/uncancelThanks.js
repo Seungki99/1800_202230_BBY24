@@ -2,9 +2,6 @@ let url_str = window.location.href;
 
 let url = new URL(url_str);
 let search_params = url.searchParams;
-console.log("parking id is", search_params.get("id"));
-
-
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     let currentParkingSpotID = search_params.get("id");
